@@ -1,0 +1,193 @@
+* {
+	&,
+	&::before,
+	&::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	color: #fff;
+	font-size: 1.6rem;
+	font-family: sans-serif;
+}
+
+img {
+	width: 100%;
+}
+
+// Placeholder styles
+%hero--base {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+
+	// Descendant elems.
+	h2,
+	p {
+		text-shadow: 0 0.1rem 0.5rem rgba( 0, 0, 0, 0.2 );
+	}
+
+	h2 {
+		font-size: 2.4rem;
+
+		// Media queries
+		@media ( min-width: 768px ) {
+			font-size: 3.6rem;
+		}
+
+		@media ( min-width: 1024px ) {
+			font-size: 4.8rem;
+		}
+	}
+
+	p {
+		color: #ddd;
+		font-size: 1.3rem;
+
+		// Media queries
+		@media ( min-width: 768px ) {
+			font-size: 1.6rem;
+		}
+
+		@media ( min-width: 1024px ) {
+			font-size: 2rem;
+		}
+	}
+}
+
+%hero-bg--base {
+	// Descendant elems.
+	&,
+	img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	img {
+		height: 100%;
+		object-fit: cover;
+		filter: grayscale( 0.9 );
+	}
+
+	// Pseudo
+	&::after {
+		content: '';
+		width: 100%;
+		height: 40vh;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		background: linear-gradient( rgba( 0, 0, 0, 0 ), rgba( 0, 0, 0, 1 ) );
+	}
+}
+
+%hero-content--base {
+	width: 90%;
+	height: 100vh;
+	margin: 0 auto;
+	padding: 6rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	position: relative;
+}
+
+// Shared base styles.
+.hero,
+.hero--has-max,
+.hero--fixed-aspect,
+.hero--fixed-aspect--has-max,
+.hero--max-width {
+	@extend %hero--base;
+}
+
+// Shared 'bg' styles.
+.hero__bg,
+.hero--has-max__bg,
+.hero--fixed-aspect__bg,
+.hero--fixed-aspect--has-max__bg,
+.hero--max-width__bg {
+	@extend %hero-bg--base;
+}
+
+// Share 'content' styles.
+.hero__content,
+.hero--has-max__content,
+.hero--fixed-aspect__content,
+.hero--fixed-aspect--has-max__content,
+.hero--max-width__content {
+	@extend %hero-content--base;
+}
+
+// Variant: full bleed; full viewport height; content has max-width.
+.hero--has-max__content {
+	max-width: 115.2rem;
+}
+
+// Variant: full bleed; fixed aspect ratio.
+.hero--fixed-aspect {
+	padding-top: 56.25%; // 16:9
+}
+
+.hero--fixed-aspect__content {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX( -50% );
+}
+
+// Variant: full bleed; fixed aspect ratio; content has max-width.
+.hero--fixed-aspect--has-max {
+	padding-top: 56.25%; // 16:9
+}
+
+.hero--fixed-aspect--has-max__content {
+	max-width: 115.2rem;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX( -50% );
+}
+
+// Variant: full width; fixed aspect ratio; content has max-width.
+.hero--max-width {
+	width: 100%;
+	max-width: 128rem;
+	padding-top: 56.25%;
+	margin: 0 auto;
+
+	// Media queries
+	@media ( min-width: 1280px ) {
+		padding-top: 72rem;
+	}
+}
+
+.hero--max-width__bg {
+	width: 100%;
+	height: 100%;
+}
+
+.hero--max-width__content {
+	width: 100%;
+	height: 100%;
+	padding-left: 6rem;
+	padding-right: 6rem;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX( -50% );
+}
