@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  color: #fff;
+  color: #ddd;
   font-size: 1.6rem;
   font-family: sans-serif;
 }
@@ -61,7 +61,6 @@ img {
 .hero--fixed-aspect p,
 .hero--fixed-aspect--has-max p,
 .hero--max-width p {
-  color: #ddd;
   font-size: 1.3rem;
 }
 
@@ -200,4 +199,104 @@ img {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+main {
+  color: #222;
+  width: 90%;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+.text--adaptive > *:not(:last-child), .text--adaptive--has-max > *:not(:last-child), .text--responsive > *:not(:last-child), .text--responsive--has-max > *:not(:last-child) {
+  margin-bottom: 0.25em;
+}
+
+.text--adaptive p, .text--adaptive--has-max p, .text--responsive p, .text--responsive--has-max p {
+  margin-bottom: 1em !important;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.text--adaptive h1, .text--adaptive--has-max h1, .text--responsive h1, .text--responsive--has-max h1 {
+  font-size: 1.75em;
+}
+
+.text--adaptive h2, .text--adaptive--has-max h2, .text--responsive h2, .text--responsive--has-max h2 {
+  font-size: 1.3em;
+}
+
+.text--adaptive h3, .text--adaptive--has-max h3, .text--responsive h3, .text--responsive--has-max h3,
+.text--adaptive h4,
+.text--adaptive--has-max h4,
+.text--responsive h4,
+.text--responsive--has-max h4,
+.text--adaptive h5,
+.text--adaptive--has-max h5,
+.text--responsive h5,
+.text--responsive--has-max h5,
+.text--adaptive h6,
+.text--adaptive--has-max h6,
+.text--responsive h6,
+.text--responsive--has-max h6 {
+  font-size: 1em;
+}
+
+.text--adaptive,
+.text--adaptive--has-max {
+  font-size: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .text--adaptive,
+  .text--adaptive--has-max {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text--adaptive,
+  .text--adaptive--has-max {
+    font-size: 2rem;
+  }
+}
+
+.text--adaptive--has-max {
+  max-width: 115.2rem;
+}
+
+.text--responsive,
+.text--responsive--has-max {
+  font-size: 4vw;
+}
+
+@media (min-width: 600px) {
+  .text--responsive,
+  .text--responsive--has-max {
+    font-size: 3vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .text--responsive,
+  .text--responsive--has-max {
+    font-size: 2.4vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text--responsive,
+  .text--responsive--has-max {
+    font-size: 2vw;
+  }
+}
+
+.text--responsive--has-max {
+  max-width: 115.2rem;
+}
+
+@media (min-width: 1024px) {
+  .text--responsive--has-max {
+    font-size: 2.05rem;
+  }
 }
