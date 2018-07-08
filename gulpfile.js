@@ -14,7 +14,7 @@ const PATHS = new PathMap( {
 	viewsDest: '{{dest}}',
 } );
 
-gulp.task( 'default', [ 'styles', 'views' ] );
+gulp.task( 'default', [ 'images', 'styles', 'views' ] );
 
 gulp.task( 'images', () => {
 	return gulp.src( `${PATHS.imagesSrc}/**/*` )
@@ -36,6 +36,7 @@ gulp.task( 'views', () => {
 } );
 
 gulp.task( 'watch', [ 'default' ], () => {
+	gulp.watch( `${PATHS.imagesSrc}/**/*`, [ 'images' ] );
 	gulp.watch( `${PATHS.stylesSrc}/**/*.scss`, [ 'styles' ] );
 	gulp.watch( `${PATHS.viewsSrc}/**/*.pug`, [ 'views' ] );
 } );
