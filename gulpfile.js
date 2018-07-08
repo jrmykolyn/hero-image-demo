@@ -5,7 +5,7 @@ const sass = require( 'gulp-sass' );
 
 const PATHS = new PathMap( {
 	src: './src',
-	dest: './dist',
+	dest: './docs',
 	imagesSrc: '{{src}}/img',
 	imagesDest: '{{dest}}/img',
 	stylesSrc: '{{src}}/styles',
